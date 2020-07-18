@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/CrearExperiencias.css">
+    <title>Crear una Entidad</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <a href="#" class="navbar-brand logo"><img src="https://img.icons8.com/color/96/000000/parse-from-clipboard.png"
+              height="50" />CURRICULUM VITAE</a>
+        <div class="collapse navbar-collapse">
+           <ul class="navbar-nav ml-auto">
+              <li class="nav-sitem">
+                 <a href="mi_cuenta_admin.html" class="nav-link">Mi cuenta</a>
+              </li>
+              <li class="nav-item">
+                 <a href="iniciar_sesion.html" class="nav-link">Cerrar sesión</a>
+              </li>
+           </ul>
+        </div>
+    </nav>
+
+    <div class="container contenedor">
+        <div class="row justify-content-center">
+            <div class="col-4 text-center" id="img">
+                <img src="https://img.icons8.com/cotton/64/000000/sport-badge--v2.png"/>
+            </div>
+        </div>
+        <form id="formu" action="/" class="formulario need-validation"  method="POST"  th:object="${formulario}">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-4 text-right">
+                                <label for="iduser">IdUser: </label>
+                            </div>
+                            <div class="col-6 text-left">
+                                <input th:if="${session.id}" th:value="${session.id}" type="text" name="campo0"  />
+                                <input th:if="${session.id eq null}" type="text" name="campo0" th:field="*{campo0}" />
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-4 text-right">
+                                <label for="entidad">Entidad: </label>
+                            </div>
+                            <div class="col-6 text-left">
+                                <input type="text" list="entidades" name="campo1" />
+                                <datalist  id="entidades">
+                                    <option value="Alicorp">Alicorp</option>
+                                    <option value="IBM">IBM</option>
+                                    <option value="BCP">BCP</option>
+                                </datalist>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-4 text-right">
+                                <label for="ocupacion">Ocupación: </label>
+                            </div>
+                            <div class="col-6 text-left">
+                                <input type="text" list="ocupaciones" name="campo2" />
+                                <datalist  id="ocupaciones">
+                                    <option value="Gerente General">Gerente General</option>
+                                    <option value="Gerente de Produccion">Gerente de Produccion</option>
+                                    <option value="Gerente de Sistemas">Gerente de Sistemas</option>
+                                </datalist>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-4 text-right">
+                                <label for="logros">Logros: </label>
+                            </div>
+                            <div class="col-6 text-left">
+                                <textarea id="logros" class="form-control" name="campo3" style="width:500px;height:150px;" ></textarea>                                
+                                <text id="Logros20" style="color: red;display: none;">*Supera los 30 caracteres</text>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-4 text-right">
+                                <label for="fechaini">Fecha Inicio: </label>
+                            </div>
+                            <div class="col-6 text-left">
+                                <input type="date" id="cfechai" name="campo5" />                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-4 text-right">
+                                <label for="fechafin">Fecha Fin: </label>
+                            </div>
+                            <div class="col-6 text-left">
+                                <input type="date" id="cfechaf" name="campo6" />                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-4 text-right">
+                                <label for="estado">Estado: </label>
+                            </div>
+                            <div class="col-6 text-left">
+                                <select name="campo4" id="estado" class="form-control" th:field="*{campo4}" >
+                                    <option value="activo">Activo</option>
+                                    <option value="inactivo">Inactivo</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center fila">
+                <div class="col-4 text-center">
+                    <input id="boton" type="submit" value="Guardar" class="boton"/>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="../static/js/crearExperiencia.js"></script>
+</body>
+</html>

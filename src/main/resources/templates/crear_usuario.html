@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+   <link rel="stylesheet" href="../static/css/crear_usuario.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <a href="#" class="navbar-brand logo"><img src="https://img.icons8.com/color/96/000000/parse-from-clipboard.png"
+              height="50" />CURRICULUM VITAE</a>
+        <div class="collapse navbar-collapse">
+           <ul class="navbar-nav ml-auto">
+              <li class="nav-sitem">
+                 <a href="mi_cuenta_admin.html" class="nav-link">Mi cuenta</a>
+              </li>
+              <li class="nav-sitem">
+                 <a href="usuarios.html" class="nav-link">Usuarios</a>
+              </li>
+              <li class="nav-item">
+                 <a href="iniciar_sesion.html" class="nav-link">Cerrar sesión</a>
+              </li>
+           </ul>
+        </div>
+     </nav>
+
+     <div class="container contenido">
+        <div class="row">
+            <div class="col text-center titulo">
+                CREAR USUARIO
+            </div>
+        </div>
+    </div>
+
+    <form id="formu" action="/crear_usuario/" class="formulario need-validation" method="POST"  th:object="${formularioUsuario}">
+        <div class="row justify-content-center">
+            <div class="col">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="correo">Correo: </label>
+                        </div>
+                        <div class="col-6 text-left">
+                            <input type="text" id="correo" name="campo1" class="form-control" th:field="*{campo1}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="contraseña">Rol: </label>
+                        </div>
+                        <div class="col-6 text-left">
+                            <input type="text" id="rol" name="campo2" class="form-control" th:field="*{campo2}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="contraseña">Estado: </label>
+                        </div>
+                        <div class="col-6 text-left">
+                            <select name="campo3" id="estado" class="form-control" th:field="*{campo3}">
+                                <option value="activo">Activo</option>
+                                <option value="inactivo">Inactivo</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center fila">
+            <div class="col-4 text-center">
+                <input type="submit" value="CREAR" class="boton" />
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+   <link rel="stylesheet" href="../static/css/LExperiencias.css">
+   <title>Document</title>
+</head>
+
+<body>
+   <nav class="navbar navbar-expand-sm navbar-light bg-light">
+      <a href="#" class="navbar-brand logo"><img src="https://img.icons8.com/color/96/000000/parse-from-clipboard.png"
+            height="50" />CURRICULUM VITAE</a>
+      <div class="collapse navbar-collapse">
+         <ul class="navbar-nav ml-auto">
+            <li class="nav-sitem">
+               <a href="mi_cuenta_admin.html" class="nav-link">Mi cuenta</a>
+            </li>
+            <li class="nav-item">
+               <a href="iniciar_sesion.html" class="nav-link">Cerrar sesión</a>
+            </li>
+         </ul>
+      </div>
+   </nav>
+
+   <div class="container contenido">
+      <div class="row cabecera">
+          <div class="col-4 titulo">
+             Lista Experiencias
+          </div>
+          
+         
+          <div class="col-4 text-right align-self-center botonContenedor" style="left: 300px;">
+              <a th:href="@{/}" class="boton">Crear Experiencia</a>
+           </div>
+       </div>
+       <table th:unless="${#lists.isEmpty(misExperiencias)}" class="table" id="tabla">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Entidad</th>
+              <th scope="col">Ocupacion</th>
+              <th scope="col">Fecha Fin</th>
+            </tr>
+          </thead>
+          <tbody>
+             
+            <tr th:each="x:${misExperiencias}">
+              <th scope="row"><span th:text="${x.id}"> Id Experiencia</span></th>
+              <td><span th:text="${x.entidad}"> Entidad </span></td>
+              <td><span th:text="${x.ocupacion}"> Puesto</span></td>
+              <td><span th:text="${x.fechaini}"> Fecha Inicio</span><span> - </span><span th:if="${x.fechafin == ''}">  Actualidad </span> 
+               <span th:if="${x.fechafin != ''}" th:text="${x.fechafin}"> Fecha Fin </span> 
+               </td>
+               <td>
+                  <!--
+                  <form th:if="${x.fechafin != ''}" form method="GET"
+                  th:action="@{/actualizar/{x}/{y}/{z}/{a}/{b}/{c}/{d} (x = ${x.iduser},y=${x.entidad},z=${x.ocupacion},a=${x.fechaini},b=${x.fechafin},c=${x.logr},d=${x.id})}">
+                  </form>
+                  <form th:if="${x.fechafin == ''}" form method="GET"
+                  th:action="@{/actualizar/{x}/{y}/{z}/{a}/Actualidad/{c}/{d} (x = ${x.iduser},y=${x.entidad},z=${x.ocupacion},a=${x.fechaini},c=${x.logr},d=${x.id})}">
+                  </form>
+                  -->
+                  <form method="POST"> 
+                     <input type="hidden" name="idaeditar" th:value="${x.id}"/> 
+                     <input type="submit" value="Actualizar"/>
+                  </form>
+               </td>
+            </tr>
+            <br>
+            
+          </tbody>
+        </table>
+  
+     </div>
+
+   
+
+
+
+</body>
+
+</html>

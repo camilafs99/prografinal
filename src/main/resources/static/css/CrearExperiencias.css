@@ -1,0 +1,42 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-bottom: 2%;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 20px;
+    color: #3b6978 !important;
+}
+
+.titulo {
+    padding-bottom: 2%;
+    font-size: 30px;
+    font-weight: 700;
+    border-bottom: 0.5px solid darkgray;
+}
+
+.contenido {
+    padding-top: 3%;
+}
+
+.fila {
+    padding: 2%;
+}
+
+.boton {
+    background-color: #3b6978;
+    color: white;
+    width: 150px;
+    height: 40px;
+    border: none;
+}
+
+.formulario {
+    width: 800px;
+    margin: auto;
+    padding-top: 5%;
+}
+#img {
+    bottom: -30px;
+}
